@@ -1,4 +1,7 @@
+import "reflect-metadata";
 import express, { Request, Response } from "express";
+
+import "./database";
 
 const PORT = process.env.PORT || 3333;
 
