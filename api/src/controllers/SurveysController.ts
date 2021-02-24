@@ -21,13 +21,7 @@ class SurveysController {
   async show(request: Request, response: Response) {
     const surveysRepository = getCustomRepository(SurveysRepository);
 
-    const all = surveysRepository.find();
-
-    if (!all) {
-      return response
-        .status(404)
-        .json({ error: "Nenhuma pesquisa encontrada!" });
-    }
+    const all = await surveysRepository.find();
 
     return response.status(200).json(all);
   }
