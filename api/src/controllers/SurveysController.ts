@@ -17,6 +17,20 @@ class SurveysController {
 
     return response.status(201).json(survey);
   }
+
+  async show(request: Request, response: Response) {
+    const surveysRepository = getCustomRepository(SurveysRepository);
+
+    const all = surveysRepository.find();
+
+    if (!all) {
+      return response
+        .status(404)
+        .json({ error: "Nenhuma pesquisa encontrada!" });
+    }
+
+    return response.status(200).json(all);
+  }
 }
 
 export { SurveysController };
