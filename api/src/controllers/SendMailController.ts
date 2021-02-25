@@ -27,8 +27,6 @@ class SendMailController {
       return response.status(400).json({ error: "Survey does not exists" });
     }
 
-    // Salvar as informações na tablea surveys_users
-
     const surveyUser = await surveysUsersRepository.create({
       user_id: userAlreadyExists.id,
       survey_id,
